@@ -30,6 +30,28 @@ function myFunction() {
 $(document).ready(function () {
     $('div.hide').fadeIn(2500).removeClass('hide');
 });
+
+
+
+
+
+var radialObj = radialIndicator('#clock', {
+    radius: 50,
+    barWidth: 10,
+    barColor: '#002bff',
+    minValue: 0,
+    maxValue: 60,
+    fontWeight: 'normal',
+    roundCorner: true,
+    format: function (value) {
+        var date = new Date();
+        return date.getHours() + ':' + date.getMinutes();
+    }
+});
+ 
+setInterval(function () {
+    radialObj.value(new Date().getSeconds() + 1);
+}, 1000);
 /*!
  * Lightbox v2.10.0
  * by Lokesh Dhakar
